@@ -27,6 +27,7 @@ hey -n 2000 http://20.121.251.151/ping
 ```
 
 ## Step 2: Add newrelic apm Agent
+
 ```bash
 # build newrelic base image
 docker buildx build -f NewRelicBaseImageDockerFile . --platform linux/amd64 -t python_newrelic:latest --progress=plain
@@ -54,6 +55,7 @@ kubectl set env deployment/flask-simple \
 # browse http://20.121.251.151/ or http://20.121.251.151/ping or http://20.121.251.151/error
 # go to NR One, you should see your app under APM
 ```
+
 ![](2022-04-29-12-29-24.png)
 
 ## Step 3: Connect CodeStream and view Code Level Metrics
@@ -65,6 +67,13 @@ kubectl set env deployment/flask-simple \
 # install k6 (https://k6.io/docs/getting-started/installation/)
 brew install k6
 
-# Run the load tests
+# in VSCode , open app.py file, then in the background, run the load tests
 k6 run -e PUBLIC_IP=20.121.251.151 loadtest.js
 ```
+
+-   you should see this after a minute or two
+    ![](2022-04-29-12-34-42.png)
+-   click on the Telemetry on top of each method, will show this
+    ![](2022-04-29-12-39-54.png)
+-   you can click on this link to jump directly to the APM service
+    ![](2022-04-29-12-41-09.png)
