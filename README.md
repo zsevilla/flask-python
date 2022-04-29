@@ -48,7 +48,7 @@ kubectl set env deployment/flask-simple \
     NEW_RELIC_NO_CONFIG_FILE=true \
     NEW_RELIC_DISTRIBUTED_TRACING_ENABLED=true \
     NEW_RELIC_METADATA_REPOSITORY_URL=https://github.com/nvhoanganh/flask-python.git \
-    NEW_RELIC_METADATA_COMMIT=cb3394af076879d31f49ab8da14b55c56c9329cc \
+    NEW_RELIC_METADATA_COMMIT=b2323343c12ae61ce3624ae80253f3483434780b \
     --namespace=sock-shop
 
 # browse http://20.121.251.151/ or http://20.121.251.151/ping or http://20.121.251.151/error
