@@ -42,9 +42,13 @@ kubectl set image deployment/flask-simple \
     flask-simple=anthonynguyen334/flask-codestream:withNRApm \
     -n sock-shop
 
+# get your ingest license at one.newrelic.com
+set NEW_RELIC_LICENSE_KEY "your-license"
+
+
 # Set required env variables
 kubectl set env deployment/flask-simple \
-    NEW_RELIC_LICENSE_KEY=df31781c18d67c8ce976afbc264ab666FFFFNRAL \
+    NEW_RELIC_LICENSE_KEY=$NEW_RELIC_LICENSE_KEY \
     NEW_RELIC_APP_NAME="Flask - simple" \
     NEW_RELIC_NO_CONFIG_FILE=true \
     NEW_RELIC_DISTRIBUTED_TRACING_ENABLED=true \
