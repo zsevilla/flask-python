@@ -32,7 +32,6 @@ hey -n 2000 http://20.121.251.151/ping
 # build newrelic base image
 docker buildx build -f NewRelicBaseImageDockerFile . --platform linux/amd64 -t python_newrelic:latest --progress=plain
 
-
 # update Dockerfile and replace 'FROM python:3.8-slim-buster' to 'FROM python_newrelic:latest' and build image again
 docker buildx build . --platform linux/amd64 -t anthonynguyen334/flask-codestream:withNRApm --progress=plain
 # push the updated image
@@ -46,7 +45,7 @@ kubectl set image deployment/flask-simple \
 # Set required env variables
 kubectl set env deployment/flask-simple \
     NEW_RELIC_LICENSE_KEY=df31781c18d67c8ce976afbc264ab666FFFFNRAL \
-    NEW_RELIC_APP_NAME="Flask - simple" \
+NEW_RELIC_APP_NAME="Flask - simple" \
     NEW_RELIC_NO_CONFIG_FILE=true \
     NEW_RELIC_DISTRIBUTED_TRACING_ENABLED=true \
     NEW_RELIC_METADATA_REPOSITORY_URL=https://github.com/nvhoanganh/flask-python.git \
