@@ -54,8 +54,7 @@ kubectl set env deployment/flask-simple \
 # browse http://20.121.251.151/ or http://20.121.251.151/ping or http://20.121.251.151/error
 # go to NR One, you should see your app under APM
 ```
-
-![](2022-04-29-12-26-37.png)
+![](2022-04-29-12-29-24.png)
 
 ## Step 3: Connect CodeStream and view Code Level Metrics
 
