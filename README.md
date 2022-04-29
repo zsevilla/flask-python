@@ -45,7 +45,11 @@ kubectl set image deployment/flask-simple \
 
 # Set required env variables
 kubectl set env deployment/flask-simple \
-    NEW_RELIC_METADATA_REPOSITORY_URL=https://github.com/nvhoanganh/front-end.git \
-    NEW_RELIC_METADATA_COMMIT=68c70ed16c951f73b3380c928deca2a8b3888698 \
+    NEW_RELIC_LICENSE_KEY=df31781c18d67c8ce976afbc264ab666FFFFNRAL \
+    NEW_RELIC_APP_NAME="Flask - simple" \
+    NEW_RELIC_NO_CONFIG_FILE=true \
+    NEW_RELIC_DISTRIBUTED_TRACING_ENABLED=true \
+    NEW_RELIC_METADATA_REPOSITORY_URL=https://github.com/nvhoanganh/flask-python.git \
+    NEW_RELIC_METADATA_COMMIT=cb3394af076879d31f49ab8da14b55c56c9329cc \
     --namespace=sock-shop
 ```

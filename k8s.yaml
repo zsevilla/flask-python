@@ -18,6 +18,7 @@ spec:
       containers:
         - name: flask-simple
           image: anthonynguyen334/flask-codestream:latest
+          imagePullPolicy: Always
           resources:
             requests:
               cpu: 100m
