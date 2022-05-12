@@ -18,12 +18,17 @@ export const options = {
   ]
 };
 
+function generateRandomInteger(max) {
+  return Math.floor(Math.random() * max) + 1;
+}
+
 export default function () {
   // browse the app
   const BASE_URL = `http://${__ENV.PUBLIC_IP}/`;
-  let requests = ['ping', '', 'error'];
-  requests.forEach(url => {
-    const dest = `${BASE_URL}${url}`
-    const reqr = http.get(dest);
-  });
+  const requests = ['ping', '', 'error'];
+  // call random url
+  const random = generateRandomInteger(requests.length - 1)
+  const url = requests[random];
+  const dest = `${BASE_URL}${url}`
+  const reqr = http.get(dest);
 }
