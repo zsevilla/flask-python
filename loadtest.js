@@ -30,6 +30,6 @@ export default function () {
   const random = generateRandomInteger(requests.length);
   const url = requests[random];
   const dest = `${BASE_URL}${url}`;
-  console.log(`sending request to ${dest}`);
+  // console.log(`sending request to ${dest}`);
   const reqr = http.get(dest);
 }
