@@ -19,7 +19,7 @@ export const options = {
 };
 
 function generateRandomInteger(max) {
-  return Math.floor(Math.random() * max) + 1;
+  return Math.floor(Math.random() * max);
 }
 
 export default function () {
@@ -27,8 +27,9 @@ export default function () {
   const BASE_URL = `http://${__ENV.PUBLIC_IP}/`;
   const requests = ['ping', '', 'error'];
   // call random url
-  const random = generateRandomInteger(requests.length - 1)
+  const random = generateRandomInteger(requests.length);
   const url = requests[random];
-  const dest = `${BASE_URL}${url}`
+  const dest = `${BASE_URL}${url}`;
+  console.log(`sending request to ${dest}`);
   const reqr = http.get(dest);
 }
