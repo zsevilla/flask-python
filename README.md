@@ -41,6 +41,9 @@ kubectl set env deployment/flask-simple \
     NEW_RELIC_METADATA_COMMIT=b2323343c12ae61ce3624ae80253f3483434780b \
     --namespace=sock-shop
 
+# restart the deployment
+kubectl rollout restart deployment flask-simple -n sock-shop
+
 # browse http://20.121.251.151/ or http://20.121.251.151/ping or http://20.121.251.151/error
 # go to NR One, you should see your app under APM
 ```
