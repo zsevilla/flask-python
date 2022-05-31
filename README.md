@@ -48,7 +48,7 @@ kubectl set env deployment/flask-simple \
 # restart the deployment
 kubectl rollout restart deployment flask-simple -n sock-shop
 
-# browse http://20.121.251.151/ or http://20.121.251.151/ping or http://20.121.251.151/error
+# browse http://<YOURPUBLICIP>/ or http://<YOURPUBLICIP>/ping or http://<YOURPUBLICIP>/error
 # go to NR One, you should see your app under APM
 ```
 
@@ -64,7 +64,7 @@ kubectl rollout restart deployment flask-simple -n sock-shop
 brew install k6
 
 # in VSCode , open app.py file, then in the background, run the load tests
-k6 run -e PUBLIC_IP=20.121.251.151 loadtest.js
+k6 run -e PUBLIC_IP=<YOURPUBLICIP> loadtest.js
 ```
 
 -   you should see this after a minute or two
