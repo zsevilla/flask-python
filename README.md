@@ -16,7 +16,7 @@ curl http://<YOURPUBLICIP>/error
 brew install hey
 
 # load test the Flask API
-hey -n 2000 http://20.121.251.151/ping
+hey -n 2000 http://<YOURPUBLICIP>/ping
 ```
 
 ## Step 2: Add newrelic apm Agent
@@ -28,16 +28,16 @@ kubectl set image deployment/flask-simple \
     -n sock-shop
 
 # get your ingest license at one.newrelic.com
-# on Windows
-set NEW_RELIC_LICENSE_KEY "your-license"
+# mac/ linux
+YOUR_NR_INGEST_API=<Ingest Key>
 
-# on MACOS
-NEW_RELIC_LICENSE_KEY="your-license"
+# windows
+set YOUR_NR_INGEST_API=<Ingest Key>
 
 
 # Set required env variables
 kubectl set env deployment/flask-simple \
-    NEW_RELIC_LICENSE_KEY=$NEW_RELIC_LICENSE_KEY \
+    NEW_RELIC_LICENSE_KEY=$YOUR_NR_INGEST_API \
     NEW_RELIC_APP_NAME="Flask - simple" \
     NEW_RELIC_NO_CONFIG_FILE=true \
     NEW_RELIC_DISTRIBUTED_TRACING_ENABLED=true \
