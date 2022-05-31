@@ -28,7 +28,11 @@ kubectl set image deployment/flask-simple \
     -n sock-shop
 
 # get your ingest license at one.newrelic.com
+# on Windows
 set NEW_RELIC_LICENSE_KEY "your-license"
+
+# on MACOS
+NEW_RELIC_LICENSE_KEY="your-license"
 
 
 # Set required env variables
