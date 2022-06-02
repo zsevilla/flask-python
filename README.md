@@ -59,6 +59,7 @@ kubectl rollout restart deployment flask-simple -n sock-shop
 ```bash
 # install latest version of Codestream extension for VSCode and connect to NR One using User key
 # reload Vscode and open this repository
+# make sure you install the python extension for VSCode
 
 # install k6 (https://k6.io/docs/getting-started/installation/)
 brew install k6

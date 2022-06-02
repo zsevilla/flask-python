@@ -25,7 +25,7 @@ function generateRandomInteger(max) {
 export default function () {
   // browse the app
   const BASE_URL = `http://${__ENV.PUBLIC_IP}/`;
-  const requests = ['ping', '', 'error'];
+  const requests = ['ping', '', 'error','ping', '', 'error'];
   // call random url
   const random = generateRandomInteger(requests.length);
   const url = requests[random];
