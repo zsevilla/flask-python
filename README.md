@@ -74,3 +74,26 @@ k6 run -e PUBLIC_IP=<YOURPUBLICIP> loadtest.js
     ![](2022-04-29-12-39-54.png)
 -   you can click on this link to jump directly to the APM service
     ![](2022-04-29-12-41-09.png)
+
+## Option: deploy to AWS ECS Fargate
+
+-   run
+
+```bash
+## download installer
+
+curl -O https://download.newrelic.com/infrastructure_agent/integrations/ecs/newrelic-infra-ecs-installer.sh
+./newrelic-infra-ecs-installer.sh -f -c YOUR_CLUSTER_NAME -l YOUR_LICENSE_KEY
+
+# give execute permission
+chmod +x newrelic-infra-ecs-installer.sh
+
+# make sure you have aws cli installed and check version
+aws configure get region
+
+# list the cluster, note the cluster you want to deploy
+$ aws ecs list-clusters
+
+# give execute permission
+./newrelic-infra-ecs-installer.sh -f -c YOUR_CLUSTER_NAME -l YOUR_LICENSE_KEY
+```

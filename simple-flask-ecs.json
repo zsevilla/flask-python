@@ -1,0 +1,131 @@
+{
+	"ipcMode": null,
+	"executionRoleArn": "arn:aws:iam::651340243866:role/NewRelicECSTaskExecutionRole",
+	"containerDefinitions": [
+		{
+			"dnsSearchDomains": null,
+			"environmentFiles": null,
+			"logConfiguration": {
+				"logDriver": "awslogs",
+				"secretOptions": null,
+				"options": {
+					"awslogs-group": "/ecs/first-run-task-definition",
+					"awslogs-region": "us-east-1",
+					"awslogs-stream-prefix": "ecs"
+				}
+			},
+			"entryPoint": [],
+			"portMappings": [
+				{
+					"hostPort": 5000,
+					"protocol": "tcp",
+					"containerPort": 5000
+				}
+			],
+			"command": [],
+			"linuxParameters": null,
+			"cpu": 0,
+			"environment": [
+				{
+					"name": "NEW_RELIC_METADATA_REPOSITORY_URL",
+					"value": "https://github.com/nvhoanganh/flask-python.git"
+				},
+				{
+					"name": "NEW_RELIC_DISTRIBUTED_TRACING_ENABLED",
+					"value": "true"
+				},
+				{
+					"name": "NEW_RELIC_METADATA_COMMIT",
+					"value": "b2323343c12ae61ce3624ae80253f3483434780b"
+				},
+				{
+					"name": "NEW_RELIC_APP_NAME",
+					"value": "flask on ecs"
+				},
+				{
+					"name": "NEW_RELIC_NO_CONFIG_FILE",
+					"value": "true"
+				},
+				{
+					"name": "NEW_RELIC_LICENSE_KEY",
+					"value": "0854ee10a3926211a1b7630f43cd7c9eFFFFNRAL"
+				}
+			],
+			"resourceRequirements": null,
+			"ulimits": null,
+			"dnsServers": null,
+			"mountPoints": [],
+			"workingDirectory": null,
+			"secrets": null,
+			"dockerSecurityOptions": null,
+			"memory": null,
+			"memoryReservation": null,
+			"volumesFrom": [],
+			"stopTimeout": null,
+			"image": "anthonynguyen334/flask-codestream:withNRApm",
+			"startTimeout": null,
+			"firelensConfiguration": null,
+			"dependsOn": null,
+			"disableNetworking": null,
+			"interactive": null,
+			"healthCheck": null,
+			"essential": true,
+			"links": [],
+			"hostname": null,
+			"extraHosts": null,
+			"pseudoTerminal": null,
+			"user": null,
+			"readonlyRootFilesystem": null,
+			"dockerLabels": null,
+			"systemControls": null,
+			"privileged": null,
+			"name": "simple-flask"
+		},
+		{
+			"environment": [
+				{
+					"name": "NRIA_OVERRIDE_HOST_ROOT",
+					"value": ""
+				},
+				{
+					"name": "NRIA_IS_FORWARD_ONLY",
+					"value": "true"
+				},
+				{
+					"name": "FARGATE",
+					"value": "true"
+				},
+				{
+					"name": "NRIA_PASSTHROUGH_ENVIRONMENT",
+					"value": "ECS_CONTAINER_METADATA_URI,ECS_CONTAINER_METADATA_URI_V4,FARGATE"
+				},
+				{
+					"name": "NRIA_CUSTOM_ATTRIBUTES",
+					"value": "{\"nrDeployMethod\":\"downloadPage\"}"
+				}
+			],
+			"secrets": [
+				{
+					"valueFrom": "/newrelic-infra/ecs/license-key",
+					"name": "NRIA_LICENSE_KEY"
+				}
+			],
+			"cpu": 256,
+			"memoryReservation": 512,
+			"image": "newrelic/nri-ecs:1.8.1",
+			"name": "newrelic-infra"
+		}
+	],
+	"memory": "512",
+	"taskRoleArn": null,
+	"family": "first-run-task-definition",
+	"pidMode": null,
+	"requiresCompatibilities": ["FARGATE"],
+	"networkMode": "awsvpc",
+	"runtimePlatform": null,
+	"cpu": "256",
+	"inferenceAccelerators": [],
+	"proxyConfiguration": null,
+	"volumes": [],
+	"tags": []
+}
