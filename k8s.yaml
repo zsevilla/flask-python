@@ -2,21 +2,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: flask-simple
+  name: flask-simple-zel
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: flask-simple
+      app: flask-simple-zel
   template:
     metadata:
       labels:
-        app: flask-simple
+        app: flask-simple-zel
     spec:
       nodeSelector:
         'kubernetes.io/os': linux
       containers:
-        - name: flask-simple
+        - name: flask-simple-zel
           image: anthonynguyen334/flask-codestream:latest
           imagePullPolicy: Always
           resources:
@@ -32,15 +32,15 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: flask-simple
+  name: flask-simple-zel
   annotations:
     prometheus.io/scrape: 'true'
   labels:
-    name: flask-simple
+    name: flask-simple-zel
 spec:
   type: LoadBalancer
   ports:
     - port: 80
       targetPort: 5000
   selector:
-    app: flask-simple
+    app: flask-simple-zel
